@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Love</title>
+<style>
+    body {
+        margin: 0;
+        background: #000;
+        font-family: 'Poppins', sans-serif;
+        color: white;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    /* Typing animation */
+    #typing {
+        margin-top: 20%;
+        font-size: 28px;
+        width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid white;
+        animation: typing 4s steps(25) forwards, blink 0.6s infinite;
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 280px; }
+    }
+
+    @keyframes blink {
+        50% { border-color: transparent; }
+    }
+
+    /* Floating hearts */
+    .heart {
+        position: absolute;
+        color: red;
+        font-size: 20px;
+        animation: float 6s linear infinite;
+        opacity: 0.6;
+    }
+
+    @keyframes float {
+        from { transform: translateY(100vh); }
+        to { transform: translateY(-10vh); }
+    }
+
+    /* Reveal message */
+    #message {
+        margin-top: 40px;
+        font-size: 30px;
+        opacity: 0;
+        animation: fadeIn 3s ease forwards;
+        animation-delay: 4s;
+    }
+
+    @keyframes fadeIn {
+        to { opacity: 1; }
+    }
+
+    /* Button */
+    button {
+        margin-top: 30px;
+        padding: 15px 25px;
+        font-size: 18px;
+        border: none;
+        background: #ff0066;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        opacity: 0;
+        animation: fadeIn 2s forwards;
+        animation-delay: 6s;
+    }
+
+    /* Pop-up card */
+    #card {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        background: white;
+        color: black;
+        width: 80%;
+        max-width: 400px;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(255,0,80,0.6);
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    #card.show {
+        transform: translate(-50%, -50%) scale(1);
+    }
+</style>
+</head>
+
+<body>
+
+<div id="typing">Hey JUNE my love… ❤️</div>
+<div id="message">You make my world brighter every day.</div>
+<button onclick="showCard()">Tap for a Surprise ❤️</button>
+
+<div id="card">
+    <h2>For You, My Queen my Lady❤️</h2>
+    <p>You are special to me more than words can explain.</p>
+    <p>I appreciate you, I cherish you, and I love you deeply.</p>
+</div>
+
+<script>
+function showCard() {
+    document.getElementById("card").classList.add("show");
+}
+
+// Create floating hearts
+for (let i = 0; i < 30; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    heart.innerHTML = "❤️";
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
